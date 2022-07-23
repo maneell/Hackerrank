@@ -28,6 +28,7 @@ int main() {
         }
     //atoi(a.c_str());
     for(int i=0; i<q; i++){
+        int d=0;
         string suche;
         for(j=0; queries[i][j]!='~'; j++){  
             tag=queries[i][j];
@@ -36,21 +37,27 @@ int main() {
         for(j=j+1; j<queries[i].length(); j++){
             suche += queries[i][j];
         }
-        if(tagi > n/2) cout << "NotFound!";
+        if(tagi > n/2) cout << "Not Found!";
         else{
+            
             for(j=0; j<hrml[tagi-1].length();j++){
                 k=1;
                 for(b=0; b<suche.length(); b++){
                     if(hrml[tagi-1][j+b]!=suche[b]) {k=0; b=300;}
+                    
                 }  
-                if(k=1){
-                    for(int c=0; c<4 ; c++){
+                //cout << d;
+                if(k==1){
+                    for(int c=0; hrml[tagi-1][j+b+2+c] != '\"' ; c++){
                     cout << hrml[tagi-1][j+b+2+c];
+                    d=1;
                     }
                 }
-            }    
+                //cout << d;
+            }
+                
         }
-         
+    if(d==0) cout << "Not Found!";     
     cout << endl;
     }
     
